@@ -55,7 +55,7 @@
       path: launchers/element/element-chat.sh
     ~/.local/share/nvim:
       create: true
-      path: local/share/neovim/nvim-data
+      path: local/share/nvim
 
 - create:
     - ~/.vim/undo-history
