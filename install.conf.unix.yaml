@@ -25,7 +25,9 @@
     ~/.zshenv: config/zsh/zsh.env
     ~/.config/newsboat: config/newsboat
     ~/.config/nnn: config/nnn
-    ~/.irssi/config: config/irssi/config
+    ~/.irssi/config:
+      create: true
+      path: config/irssi/config
     ~/.irssi/default.theme: config/irssi/lgflorentino.theme
     ~/.config/tilix/schemes:
       create: true
@@ -33,7 +35,9 @@
     ~/.config/yambar/config.yml:
       create: true
       path: config/yambar/config.yml
-    ~/.config/Thunar/uca.xml: config/thunar/uca.xml
+    ~/.config/Thunar/uca.xml:
+      create: true
+      path: config/thunar/uca.xml
 
 # link local dir
 - link:
