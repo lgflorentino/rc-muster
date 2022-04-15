@@ -1,0 +1,7 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "config/neovim/nvim-data/site/pack/packer.nvim"]
+	path = local/share/neovim/nvim-data/site/pack/packer/start/packer.nvim
+	url = https://github.com/wbthomason/packer.nvim
