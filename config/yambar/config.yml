@@ -92,8 +92,16 @@ bar:
 
     right:
         - clock:
+            time-format: "%H:%M"
+            date-format: "%a %d/%m"
             content:
-            - string: {text: "{time}"}
+              list:
+                spacing: 5
+                items:
+                  - string: {text: 📅, font: *default_sm_font}
+                  - string: {text: "{date}", right-margin: 5}
+                  - string: {text: 🕑, font: *default_sm_font}
+                  - string: {text: "{time}"}
 
 
 
