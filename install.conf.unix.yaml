@@ -38,6 +38,16 @@
     ~/.config/Thunar/uca.xml:
       create: true
       path: config/thunar/uca.xml
+    ~/.config/redshift.conf: config/redshift/redshift.conf
+    ~/.config/bspwm/bspwmrc:
+      create: true
+      path: config/bspwm/bspwmrc
+    ~/.config/sxhkd/sxhkdrc: 
+      create: true
+      path: config/sxhkd/sxhkdrc
+    ~/.config/polybar/config.ini:
+      create: true
+      path: config/polybar/config.ini
 
 # link local dir
 - link:
