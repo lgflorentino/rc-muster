@@ -1,0 +1,88 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
+# link config dir
+- link:
+    ~/.xinitrc: config/xorg/xinitrc
+    ~/.config/qtile/config.py:
+      create: true
+      path: config/qtile/config.py
+    ~/.config/awesome:
+      create: true
+      path:  config/awesome
+    ~/.tmux.conf: config/tmux/tmux.conf
+    ~/.config/nvim: 
+      create: true
+      path: config/neovim/nvim
+    ~/.gitconfig: config/git/gitconfig
+    ~/.config/river/init: config/river/init
+    ~/.zshrc: config/zsh/zshrc
+    ~/.zshenv: config/zsh/zsh.env
+    ~/.config/newsboat: config/newsboat
+    ~/.config/nnn: config/nnn
+    ~/.irssi/config:
+      create: true
+      path: config/irssi/config
+    ~/.irssi/default.theme: config/irssi/lgflorentino.theme
+    ~/.config/tilix/schemes:
+      create: true
+      path: config/tilix/schemes
+    ~/.config/yambar/config.yml:
+      create: true
+      path: config/yambar/config.yml
+    ~/.config/Thunar/uca.xml:
+      create: true
+      path: config/thunar/uca.xml
+    ~/.config/redshift.conf: config/redshift/redshift.conf
+    ~/.config/bspwm/bspwmrc:
+      create: true
+      path: config/bspwm/bspwmrc
+    ~/.config/sxhkd/sxhkdrc: 
+      create: true
+      path: config/sxhkd/sxhkdrc
+    ~/.config/polybar/config.ini:
+      create: true
+      path: config/polybar/config.ini
+    ~/.config/kicad/6.0/colors/:
+      glob: true
+      create: true
+      path: config/kicad/colors/*
+    ~/.config/kicad/6.0/user.hotkeys:
+      create: true
+      path: config/kicad/user.hotkeys
+
+# link local dir
+- link:
+    ~/.local/share/zsh/themes/lgflorentino.zsh-theme: 
+      create: true
+      path: local/share/zsh/themes/lgflorentino.zsh-theme
+    ~/.local/bin/vscode:
+      create: true
+      path: launchers/vscode/vscode.sh
+    ~/.local/bin/firefox-wl:
+      create: true
+      path: launchers/firefox/launch-firefox-wayland.sh
+    ~/.local/bin/element-chat:
+      create: true
+      path: launchers/element/element-chat.sh
+    ~/.local/share/nvim:
+      create: true
+      path: local/share/nvim
+
+- create:
+    - ~/.vim/undo-history
+    - ~/.local/share/fonts
+
+- shell:
+  # This command tells wbthomason/packer.nvim to set up the plugins defined in
+  # config/neovim/nvim/lua/plugins.lua
+  - [nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"]
+  # This command tells dconf to load the Tilix config 
+  - [dconf load /com/gexperts/Tilix/ < config/tilix/tilix.dconf]
+
+

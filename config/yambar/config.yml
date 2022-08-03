@@ -1,0 +1,117 @@
+# =========================================================================== #
+# Colourscheme - https://github.com/enkia/tokyo-night-vscode-theme
+# --------------------------------------------------------------------------- #
+
+colour00: &colour00 f7768eff # red
+colour01: &colour01 ff9e64ff # orange
+colour02: &colour02 e0af68ff # darker orange
+colour03: &colour03 9ece6aff # green
+colour04: &colour04 73dacaff # aqua
+colour05: &colour05 b4f9f8ff # lighter cyan
+colour06: &colour06 2ac3deff # cyan
+colour07: &colour07 7dcfffff # light blue
+colour08: &colour08 7aa2f7ff # blue
+colour09: &colour09 bb9af7ff # purple
+colour10: &colour10 c0caf5ff # white
+colour11: &colour11 a9b1d6ff # lavender
+colour12: &colour12 9aa5ceff # darker lavender
+colour13: &colour13 cfc9c2ff # cream
+colour14: &colour14 565f89ff # twilight
+colour15: &colour15 414868ff # dark twilight
+colour16: &colour16 24283bff # black1
+colour17: &colour17 1a1b26ff # black 2
+colour18: &colour18 15161eff # black 3
+
+red: &red f7768eff
+pink: &pink bb9af7ff
+orange: &orange ff9e64ff
+yellow: &yellow e0af68ff
+green: &green 9ece6aff
+blue: &blue 7aa2f7
+magenta: &magenta a9b1d6ff
+cyan: &cyan 2ac2deff
+white: &white c0caf5ff
+
+background: &background 1a1b26ff
+foreground: &foreground c0caf5ff
+
+
+defaultfont: &defaultfont JuliaMono:style=Regular:pixelsize=16
+default_sm_font: &default_sm_font JuliaMono:style=Regular:pixelsize=12
+
+bar:
+    height: 20
+    location: top
+    background: *background
+    foreground: *foreground
+    font: *defaultfont
+      #    border: { width: 1, color: *white }
+
+    # river config taken from https://sr.ht/~novakane/dotfiles
+    left:
+        - river:
+              anchors:
+                  - string: &default { text: "{id}" }
+                  - focused: &focused { foreground: *red }
+                  - invisible: &invisible { foreground: *foreground }
+              content:
+                  - map:
+                        tag: occupied
+                        values:
+                            false: { empty: {} }
+                            true:
+                                map:
+                                    tag: state
+                                    values:
+                                        invisible:
+                                            string:
+                                                {
+                                                    margin: 8,
+                                                    <<: [*default, *invisible],
+                                                }
+                                        focused:
+                                            string:
+                                                {
+                                                    margin: 8,
+                                                    <<: [*default, *focused],
+                                                }
+                                        unfocused:
+                                            string:
+                                                {
+                                                    margin: 8,
+                                                    <<: [*default, *invisible],
+                                                }
+
+    center:
+        - river:
+              title:
+                  - string: { text: "⫷ ", foreground: *foreground }
+                  - string: { text: "{title}", foreground: *foreground, max: 80 }
+                  - string: { text: " ⫸", foreground: *foreground }
+              content: { string: { text: "" } }
+
+    right:
+        - clock:
+            time-format: "%H:%M"
+            date-format: "%a %d/%m"
+            content:
+              list:
+                spacing: 5
+                items:
+                  - string: {text: 📅, font: *default_sm_font}
+                  - string: {text: "{date}", right-margin: 5}
+                  - string: {text: 🕑, font: *default_sm_font}
+                  - string: {text: "{time}"}
+
+
+
+
+    # right:
+    #    - clock:
+    #  content:
+    #    - string: {text: , font: "Font Awesome 5 Free:style=solid:size=12"}
+    #    - string: {text: "{date}", right-margin: 5}
+    #    - string: {text: , font: "Font Awesome 5 Free:style=solid:size=12"}
+    #    - string: {text: "{time}"}
+
+

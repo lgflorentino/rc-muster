@@ -1,0 +1,24 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+
+# links from $pwd/config to locations on the host Windows filesystem
+- link:
+    ~\.tmux.conf: config/tmux/tmux.conf
+    ~\AppData\Local\nvim:
+            create: true
+            path: config/neovim/nvim
+    ~\AppData\Local\nvim-data:
+      create: true
+      path: local/share/neovim/nvim-data
+    ~\Documents\Powershell\Microsoft.Powershell_profile.ps1: config/powershell/Microsoft.Powershell_profile.ps1
+    '%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json': config/windows-terminal/settings.json
+    ~\AppData\Local\oh-my-posh\.lgflorentino.omp.json: config/oh-my-posh/.lgflorentino.omp.json
+
+
