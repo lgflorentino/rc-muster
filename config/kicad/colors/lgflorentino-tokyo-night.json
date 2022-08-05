@@ -187,7 +187,7 @@
   "schematic": {
     "anchor": "rgb(0, 0, 255)",
     "aux_items": "rgb(0, 0, 0)",
-    "background": "rgb(245, 244, 239)",
+    "background": "rgb(15, 17, 25)",
     "brightened": "rgb(255, 0, 255)",
     "bus": "rgb(0, 0, 132)",
     "bus_junction": "rgb(0, 0, 132)",
@@ -220,6 +220,6 @@
     "sheet_name": "rgb(0, 100, 100)",
     "value": "rgb(0, 100, 100)",
     "wire": "rgb(0, 150, 0)",
-    "worksheet": "rgb(42, 26, 132)"
+    "worksheet": "rgb(141, 129, 249)"
   }
 }
