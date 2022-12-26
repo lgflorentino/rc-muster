@@ -20,7 +20,9 @@
       create: true
       path: config/neovim/nvim
     ~/.gitconfig: config/git/gitconfig
-    ~/.config/river/init: config/river/init
+    ~/.config/river/init: 
+      path: config/river/init
+      create: true
     ~/.zshrc: config/zsh/zshrc
     ~/.zshenv: config/zsh/zsh.env
     ~/.config/newsboat: config/newsboat
