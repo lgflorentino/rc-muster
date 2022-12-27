@@ -5,3 +5,5 @@
 	email = 8906574-lgflorentino@users.noreply.gitlab.com
 [core]
 	editor = nvim
+[pull]
+	rebase = false
