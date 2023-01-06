@@ -13,6 +13,8 @@ return require('packer').startup(function()
     use 'ziglang/zig.vim'
 
     use 'peterhoeg/vim-qml'
+    
+    use 'posva/vim-vue'
 
     use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
 

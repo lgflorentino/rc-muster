@@ -6,4 +6,6 @@ local/share/nvim/site/pack/packer/start/nvim-treesitter
 local/share/nvim/site/pack/packer/start/tokyonight.nvim
 local/share/nvim/site/pack/packer/start/zig.vim
 local/share/nvim/site/pack/packer/start/vim-qml
+local/share/nvim/site/pack/packer/start/vim-vue
 local/share/nvim/site/pack/packer/opt/julia-vim
+
