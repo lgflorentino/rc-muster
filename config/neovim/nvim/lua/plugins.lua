@@ -1,6 +1,6 @@
 -- @lgflorentino config for Neovim Packer plugin manager --
 
-return require('packer').startup(function() 
+return require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
 
@@ -15,6 +15,8 @@ return require('packer').startup(function()
     use 'peterhoeg/vim-qml'
     
     use 'posva/vim-vue'
+
+    use 'https://github.com/sbdchd/neoformat'
 
     use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
 

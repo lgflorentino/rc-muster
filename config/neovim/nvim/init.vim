@@ -6,19 +6,17 @@ lua require('plugins')
 
 colorscheme tokyonight
 autocmd vimenter * NERDTree
-autocmd vimenter * vertical resize 20
+autocmd vimenter * vertical resize 37
 let NERDTreeShowHidden=1
 autocmd vimenter * wincmd p
 
-autocmd FileType javascript set tabstop=2|set shiftwidth=2
-
 syntax on " Turn On Syntax Highlighting
+filetype indent plugin on "load filetype plugin indent settings
 
 set number " Set Line Numbering
 
 set background=dark "Dark Background
 
-filetype indent plugin on "load filetype plugin indent settings
 
 set mouse=a "use mouse everywhere
 
@@ -40,15 +38,13 @@ set softtabstop=4
 
 set tabstop=8 " real tabs
 
-set wildmenu
+let g:neoformat_try_node_exe = 1
 
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType jsx setlocal shiftwidth=2 tabstop=2
+set wildmenu " command line completion in nvim
 
-
+autocmd FileType html,javascript,jsx,vue setlocal shiftwidth=2 tabstop=2
 
 
 
-"this is a new comment
+
 
