@@ -3,6 +3,7 @@ set nocompatible
 set smartindent "autoindentation
 
 lua require('plugins')
+lua require('init')
 
 colorscheme tokyonight
 autocmd vimenter * NERDTree

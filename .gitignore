@@ -9,3 +9,9 @@ local/share/nvim/site/pack/packer/start/vim-qml
 local/share/nvim/site/pack/packer/start/vim-vue
 local/share/nvim/site/pack/packer/opt/julia-vim
 local/share/nvim/site/pack/packer/start/neoformat
+local/share/nvim/site/pack/packer/start/nvim-lspconfig
+local/share/nvim/site/pack/packer/start/nvim-web-devicons
+local/share/nvim/site/pack/packer/start/plenary.nvim
+local/share/nvim/site/pack/packer/start/telescope.nvim
+local/share/nvim/telescope_history
+local/share/nvim/tree-sitter-php

@@ -57,6 +57,8 @@
     ~/.config/kicad/6.0/user.hotkeys:
       create: true
       path: config/kicad/user.hotkeys
+    ~/.config/zls.json: config/zls/zls.json
+
 
 # link local dir
 - link:
@@ -84,8 +86,3 @@
   # This command tells wbthomason/packer.nvim to set up the plugins defined in
   # config/neovim/nvim/lua/plugins.lua
   - [nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"]
-  # This command tells dconf to load the Tilix config 
-  - 
-    command: zsh custom-extension-scripts/os-specific-commands.sh
-    stdout: true
-
