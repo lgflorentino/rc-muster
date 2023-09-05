@@ -15,3 +15,4 @@ local/share/nvim/site/pack/packer/start/plenary.nvim
 local/share/nvim/site/pack/packer/start/telescope.nvim
 local/share/nvim/telescope_history
 local/share/nvim/tree-sitter-php
+local/share/nvim/swap
