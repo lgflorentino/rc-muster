@@ -39,7 +39,16 @@ autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 
+
+"Neoformat settings
+
 let g:neoformat_try_node_exe = 1
+
+"augroup fmt
+"    autocmd!
+"    autocmd BufWritePre * undojoin | Neoformat
+"augroup END
+
 
 
 set wildmenu " command line completion in nvim

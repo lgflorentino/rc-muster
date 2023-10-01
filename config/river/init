@@ -123,6 +123,9 @@ riverctl map normal $mod F11 enter-mode passthrough
 # Mod+F11 to return to normal mode
 riverctl map passthrough $mod F11 enter-mode normal
 
+# Set the default audio sink
+riverctl spawn 'pactl set-default-sink alsa_output.pci-0000_0a_00.1.hdmi-stereo'
+
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked

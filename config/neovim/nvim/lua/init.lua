@@ -87,7 +87,12 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- tree-sitter start
 require 'nvim-treesitter.configs'.setup{
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+  ensure_installed = {
+      "c", "lua", "vim", "vimdoc", "query", "python", "php", "vue", "javascript",
+      "devicetree", "bash", "bitbake", "cmake", "cpp", "csv", "dockerfile", "html", "json",
+      "julia", "latex", "make", "markdown", "meson", "ruby", "rust", "toml",
+      "toml", "zig"
+    },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
