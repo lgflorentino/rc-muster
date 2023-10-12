@@ -15,6 +15,7 @@ DEPS=( \
     python-pyflakes \
     python-rope \
     ripgrep \
+    rust-analyzer \
     texlab \
     tmux \
     tilix \
@@ -40,6 +41,7 @@ python-pyflakes             => https://github.com/PyCQA/pyflakes
 python-rope                 => https://github.com/python-rope/rope
 texlab                      => https://github.com/latex-lsp/texlab
 ripgrep                     => https://github.com/BurntSushi/ripgrep
+rust-analyzer               => https://github.com/rust-lang/rust-analyzer
 tilix                       => https://github.com/gnunn1/tilix
 zls                         => https://github.com/zigtools/zls
 
