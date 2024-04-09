@@ -44,6 +44,8 @@ autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 
 let g:neoformat_try_node_exe = 1
 
+autocmd BufWritePre *.css Neoformat
+
 "augroup fmt
 "    autocmd!
 "    autocmd BufWritePre * undojoin | Neoformat
