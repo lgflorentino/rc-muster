@@ -1,67 +1,21 @@
--- Setup language servers.
-local lspconfig = require('lspconfig')
-
---  lua-language-server start
-lspconfig.lua_ls.setup{}
---  lua-language-server end
-
---  python-language-server start
-lspconfig.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {'W391'},
-          maxLineLength = 100
-        },
-        black = {
-            enabled = true,
-        },
-        flake8 = {
-            enabled = false,
-        }
-      }
-    }
-  }
-}
---  python-language-server end
-
---  rust-language-server start
-local on_attach = function(client)
-    require'completion'.on_attach(client)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
-lspconfig.rust_analyzer.setup{
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-}
---  rust-language-server end
+vim.opt.rtp:prepend(lazypath)
 
--- zls start
-lspconfig.zls.setup{
-    on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-        require('completion').on_attach()
-        end;
-}
--- zls end
+require("lazy").setup("plugins", opts)
 
+require('language-server-init')
+require('tree-sitter-init')
+require('telescope-init')
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -101,61 +55,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-
-
--- telescope.nvim start
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
--- telescope.nvim end
-
--- tree-sitter start
-require 'nvim-treesitter.configs'.setup{
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = {
-      "c", "lua", "vim", "vimdoc", "query", "python", "php", "vue", "javascript",
-      "devicetree", "bash", "bitbake", "cmake", "cpp", "csv", "dockerfile", "html", "json",
-      "julia", "latex", "make", "markdown", "meson", "ruby", "rust", "toml",
-      "toml", "zig"
-    },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
-
-  -- List of parsers to ignore installing (for "all")
-  -- ignore_install = { "javascript" },
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    -- disable = { "c", "rust" },
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
-    end,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  }
-}
--- tree-sitter end

@@ -1,3 +1,4 @@
 !.gitignore 
 
 local/share/nvim
+config/neovim/nvim/lazy-lock.json

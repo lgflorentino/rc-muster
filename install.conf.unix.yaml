@@ -82,7 +82,3 @@
     - ~/.vim/undo-history
     - ~/.local/share/fonts
 
-- shell:
-  # This command tells wbthomason/packer.nvim to set up the plugins defined in
-  # config/neovim/nvim/lua/plugins.lua
-  - [nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"]

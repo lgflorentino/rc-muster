@@ -2,7 +2,6 @@
 set nocompatible
 set smartindent "autoindentation
 
-lua require('plugins')
 lua require('init')
 
 colorscheme tokyonight
@@ -36,7 +35,6 @@ set expandtab
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
-autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 
 

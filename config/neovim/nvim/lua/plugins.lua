@@ -1,34 +1,30 @@
 -- @lgflorentino config for Neovim Packer plugin manager --
 
-return require('packer').startup(function(use)
+return {
 
-    use {'wbthomason/packer.nvim', branch = 'master'}
+    'folke/tokyonight.nvim',
 
-    use 'folke/tokyonight.nvim'
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+    { 'https://github.com/preservim/nerdtree', name = 'nerdtree'},
 
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    'neovim/nvim-lspconfig',
 
-    use {'https://github.com/preservim/nerdtree', as = 'nerdtree'}
+    'ziglang/zig.vim',
+    'peterhoeg/vim-qml',
+    'posva/vim-vue',
+    'https://github.com/sbdchd/neoformat',
 
-    use 'neovim/nvim-lspconfig'
-
-    use 'ziglang/zig.vim'
-
-    use 'peterhoeg/vim-qml'
-
-    use 'posva/vim-vue'
-
-    use 'https://github.com/sbdchd/neoformat'
-
-    use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
-
-    -- nvim-telescope + deps
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        requires = {
+    {
+        'JuliaEditorSupport/julia-vim',
+        init = function()
+            vim.g.latex_to_unicode_tab = 'off'
+        end,
+        lazy = true
+    },
+    { 'nvim-telescope/telescope.nvim', version = '0.1.2',
+        dependencies = {
             {'nvim-lua/plenary.nvim'},
             {'nvim-tree/nvim-web-devicons'}
         }
     }
-
-end)
+}
