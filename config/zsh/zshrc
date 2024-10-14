@@ -73,6 +73,9 @@ plugins=(aws colorize command-not-found composer cp debian docker docker-compose
 # User configuration
 
 export PATH=$HOME/.lumen/vendor/laravel/lumen-installer:$HOME/.composer/vendor/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/opt/:/home/$USER/.local/bin:/opt/share/bin:$PATH
+
+# Add local gems path 
+export PATH=$HOME/.local/share/gem/ruby/3.2.0/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $HOME/.oh-my-zsh/oh-my-zsh.sh

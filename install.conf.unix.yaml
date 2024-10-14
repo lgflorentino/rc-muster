@@ -57,6 +57,9 @@
     ~/.config/kicad/6.0/user.hotkeys:
       create: true
       path: config/kicad/user.hotkeys
+    ~/.config/zathura:
+      create: true
+      path: config/zathura
     ~/.config/zls.json: config/zls/zls.json
 
 

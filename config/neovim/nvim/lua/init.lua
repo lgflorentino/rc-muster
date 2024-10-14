@@ -1,3 +1,4 @@
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -16,6 +17,10 @@ require("lazy").setup("plugins", opts)
 require('language-server-init')
 require('tree-sitter-init')
 require('telescope-init')
+
+
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

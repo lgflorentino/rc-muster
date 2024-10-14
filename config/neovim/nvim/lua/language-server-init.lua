@@ -26,6 +26,16 @@ lspconfig.pylsp.setup{
 }
 --  python-language-server end
 
+--  ruby-lsp start
+lspconfig.ruby_lsp.setup({
+    init_options = {
+        completion = true,
+        formatter = 'standard',
+        linters = { 'standard' },
+    }
+})
+--  ruby-lsp end
+--
 --  rust-language-server start
 local on_attach = function(client)
     require'completion'.on_attach(client)
