@@ -15,7 +15,7 @@ riverctl map normal $mod Return spawn alacritty
 
 # spawn application launcher 
 # fuzzel --help for options 
-riverctl map normal $mod R spawn 'fuzzel -T tilix -w 120 -f JuliaMono -b 1a1b26ff -t f7768eff -m a9b1d6ff -s 414868ff -S 7dcfffff -C bb9af7ff -B 6 -r 25'
+riverctl map normal $mod R spawn 'fuzzel -T alacritty -w 120 -f JuliaMono -b 1a1b26ff -t f7768eff -m a9b1d6ff -s 414868ff -S 7dcfffff -C bb9af7ff -B 6 -r 25'
 
 # Screenshot
 riverctl map normal $mod+Shift S spawn 'grim -g "$(slurp)" - | wl-copy'

@@ -12,6 +12,9 @@
     ~/.config/qtile/config.py:
       create: true
       path: config/qtile/config.py
+    ~/.config/alacritty:
+      path: config/alacritty
+      create: true
     ~/.config/awesome:
       create: true
       path:  config/awesome
