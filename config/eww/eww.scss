@@ -1,0 +1,95 @@
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+$colour00: #f7768eff; // red
+$colour01: #ff9e64ff; // orange
+$colour02: #e0af68ff; // darker orange
+$colour03: #9ece6aff; // green
+$colour04: #73dacaff; // aqua
+$colour05: #b4f9f8ff; // lighter cyan
+$colour06: #2ac3deff; // cyan
+$colour07: #7dcfffff; // light blue
+$colour08: #7aa2f7ff; // blue
+$colour09: #bb9af7ff; // purple
+$colour10: #c0caf5ff; // white
+$colour11: #a9b1d6ff; // lavender
+$colour12: #9aa5ceff; // darker lavender
+$colour13: #cfc9c2ff; // cream
+$colour14: #565f89ff; // twilight
+$colour15: #414868ff; // dark twilight
+$colour16: #24283bff; // black1
+$colour17: #1a1b26ff; // black 2
+$colour18: #15161eff; // black 3
+
+$red: #f7768eff;
+$pink: #bb9af7ff;
+$orange: #ff9e64ff;
+$yellow: #e0af68ff;
+$green: #9ece6aff;
+$blue: #7aa2f7;
+$magenta: #a9b1d6ff;
+$cyan: #2ac2deff;
+$white: #c0caf5ff;
+
+$background: #1a1b26ff;
+$foreground: #c0caf5ff;
+
+
+$defaultfont: "JuliaMono:style=Regular:pixelsize=16";
+$default_sm_font: "JuliaMono:style=Regular:pixelsize=12";
+
+// Global Styles
+.bar {
+  background-color: #3a3a3a;
+  color: #b0b4bc;
+  padding: 10px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.workspaces button:hover{
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.workspaces button {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.view_btn_focused {
+  background-color: #b5e7a0;
+  color: #3e4444;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.label-ram {
+  font-size: large;
+}
+
+// .workspaces button:hover {
+//   color: #D35D6E;
+// }
+

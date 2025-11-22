@@ -12,9 +12,15 @@
     ~/.config/qtile/config.py:
       create: true
       path: config/qtile/config.py
+    ~/.config/alacritty:
+      path: config/alacritty
+      create: true
     ~/.config/awesome:
       create: true
       path:  config/awesome
+    ~/.config/eww:
+      create: true
+      path: config/eww
     ~/.tmux.conf: config/tmux/tmux.conf
     ~/.config/nvim: 
       create: true

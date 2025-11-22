@@ -1,0 +1,77 @@
+(defwidget statusbar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+            :value volume
+            :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
+    (metric :label ""
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+    (metric :label "💾"
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            :onchange "")
+    time))
+
+(defvar view-array "[1, 2, 3, 4, 5, 6, 7, 8, 9]") 
+
+(defvar active-view 0)
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 5
+    (for view in view-array
+      (button :class `{active-view == view ? "view_btn_focused" : "view_btn_unfocused"}` :onclick "riverctl set-focused-tags ${view}; eww update active-view=${view}" view)
+    )
+  )
+)
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵${music}" : ""}))
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '/^Volume:/ {print $2*100}'")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+
+(defwindow statusbar
+  :monitor 0
+  :exclusive true
+  :stacking "fg"
+  :namespace "rivercarro"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "99%"
+                      :height "25px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (statusbar))

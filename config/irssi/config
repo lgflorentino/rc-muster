@@ -142,9 +142,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
-  LiberaChat = {
-    type = "IRC";
-  };
+  LiberaChat = { type = "IRC"; };
 };
 
 channels = (
@@ -320,3 +318,9 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };
+ignores = (
+  { 
+    level = "JOINS PARTS QUITS MODES TOPICS";
+    channels = ( "#river" );
+  }
+);
