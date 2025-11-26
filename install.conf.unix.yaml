@@ -63,6 +63,9 @@
     ~/.config/kicad/6.0/user.hotkeys:
       create: true
       path: config/kicad/user.hotkeys
+    ~/.config/yazi:
+      create: true
+      path: config/yazi
     ~/.config/zathura:
       create: true
       path: config/zathura

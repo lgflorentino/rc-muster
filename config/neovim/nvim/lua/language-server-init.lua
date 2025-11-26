@@ -1,12 +1,26 @@
 -- Setup language servers.
+--local lspconfig = vim.lsp.config()
 local lspconfig = require('lspconfig')
 
 --  lua-language-server start
-lspconfig.lua_ls.setup{}
+vim.lsp.config['luals'] = {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        }
+    }
+  }
+}
+
 --  lua-language-server end
 
 --  python-language-server start
-lspconfig.pylsp.setup{
+vim.lsp.config['pylsp'] = {
   settings = {
     pylsp = {
       plugins = {
@@ -27,20 +41,21 @@ lspconfig.pylsp.setup{
 --  python-language-server end
 
 --  ruby-lsp start
-lspconfig.ruby_lsp.setup({
+vim.lsp.config['ruby_lsp'] = {
     init_options = {
         completion = true,
         formatter = 'standard',
         linters = { 'standard' },
     }
-})
+}
 --  ruby-lsp end
 --
 --  rust-language-server start
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
-lspconfig.rust_analyzer.setup{
+-- local on_attach = function(client)
+--     require'completion'.on_attach(client)
+-- end
+
+vim.lsp.config['rust_analyzer'] = {
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
@@ -64,7 +79,7 @@ lspconfig.rust_analyzer.setup{
 --  rust-language-server end
 
 -- zls start
-lspconfig.zls.setup{
+vim.lsp.config['zls'] = {
     on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
         require('completion').on_attach()

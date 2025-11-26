@@ -23,6 +23,13 @@ require('telescope-init')
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 
+-- enable the lua language server
+vim.lsp.enable('luals')
+vim.lsp.enable('pylsp')
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('zls')
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
