@@ -134,9 +134,9 @@ do
     riverctl map $mode None XF86Eject 'spawn eject -T'
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-'
+    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -147,6 +147,8 @@ do
     # Control screen backlight brighness with light (https://github.com/haikarainen/light)
     riverctl map $mode None XF86MonBrightnessUp   spawn 'light -A 5'
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+
+    riverctl map $mode None XF86Calculator  spawn 'qalculate-gtk'
 done
 
 # Set background and border color
@@ -165,9 +167,9 @@ riverctl float-filter-add title "popup title with spaces"
 riverctl csd-filter-add app-id "gedit"
 
 # =========================================================================== #
-# Yambar
+# eww status bar
 # --------------------------------------------------------------------------- #
-riverctl spawn 'yambar'
+riverctl spawn 'eww --force-wayland daemon; eww open statusbar'
 
 # =========================================================================== #
 # RIVERCARRO ADDITIONS

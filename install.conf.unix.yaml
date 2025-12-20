@@ -18,6 +18,9 @@
     ~/.config/awesome:
       create: true
       path:  config/awesome
+    ~/.config/eww:
+      create: true
+      path: config/eww
     ~/.tmux.conf: config/tmux/tmux.conf
     ~/.config/nvim: 
       create: true
@@ -60,6 +63,9 @@
     ~/.config/kicad/6.0/user.hotkeys:
       create: true
       path: config/kicad/user.hotkeys
+    ~/.config/yazi:
+      create: true
+      path: config/yazi
     ~/.config/zathura:
       create: true
       path: config/zathura
