@@ -2,3 +2,4 @@
 
 local/share/nvim
 config/neovim/nvim/lazy-lock.json
+config/xdg-desktop-portal/river-portals.conf

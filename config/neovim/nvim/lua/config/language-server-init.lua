@@ -4,17 +4,20 @@ local lspconfig = require('lspconfig')
 
 --  lua-language-server start
 vim.lsp.config['luals'] = {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+   cmd = { 'lua-language-server' },
+   filetypes = { 'lua' },
+   root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
 
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        }
-    }
-  }
+   settings = {
+      Lua = {
+         runtime = {
+            version = 'LuaJIT',
+         },
+	 completion = {
+	    enable = true
+	 }
+      }
+   }
 }
 
 --  lua-language-server end

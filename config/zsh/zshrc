@@ -70,8 +70,18 @@ DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(aws colorize command-not-found composer cp debian docker docker-compose emoji emoji-clock git-extras git gnu-utils gradle heroku history jira laravel mercurial node npm perl pip postgres redis-cli repo rsync ruby scala systemd systemadmin themes tmux vagrant vim-interaction virtualenv yum zsh-navigation-tools)
 
-# User configuration
 
+# yazi integration
+#
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# User configuration
 export PATH=$HOME/.lumen/vendor/laravel/lumen-installer:$HOME/.composer/vendor/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/opt/:/home/$USER/.local/bin:/opt/share/bin:$PATH
 
 # Add local gems path 
@@ -103,7 +113,8 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias dc="docker compose"
+
 
 
 bindkey "^[[H" beginning-of-line

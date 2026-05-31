@@ -24,17 +24,15 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
-    -- import your plugins
-    { import = "plugins" },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "tokyonight" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-  dev = {
-      path = "~/cook/neovim",
+   spec = {
+      -- import your plugins
+      import = "plugins",
+   },
 
-  }
+   -- Configure any other settings here. See the documentation for more details.
+   -- colorscheme that will be used when installing plugins.
+   install = { colorscheme = { "tokyonight-storm" } },
+
+   -- automatically check for plugin updates
+   checker = { enabled = true }
 })

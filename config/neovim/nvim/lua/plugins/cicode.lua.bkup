@@ -1,0 +1,4 @@
+return {
+   'lgflorentino/cicode.vim',
+   dev = true
+}

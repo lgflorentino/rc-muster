@@ -40,6 +40,9 @@
     ~/.config/tilix/schemes:
       create: true
       path: config/tilix/schemes
+    ~/.config/nixpkgs:
+      create: true
+      path: config/nixpkgs
     ~/.config/yambar/config.yml:
       create: true
       path: config/yambar/config.yml
@@ -63,6 +66,9 @@
     ~/.config/kicad/6.0/user.hotkeys:
       create: true
       path: config/kicad/user.hotkeys
+    ~/.config/xdg-desktop-portal:
+      create: true
+      path: config/xdg-desktop-portal
     ~/.config/yazi:
       create: true
       path: config/yazi

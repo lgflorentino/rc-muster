@@ -4,7 +4,7 @@ require 'nvim-treesitter.configs'.setup{
   ensure_installed = {
       "c", "lua", "vim", "vimdoc", "query", "python", "php", "vue", "javascript",
       "devicetree", "bash", "bitbake", "cmake", "cpp", "csv", "dockerfile", "json",
-      "julia", "latex", "make", "markdown", "meson", "ruby", "rust", "toml",
+      "julia", "latex", "make", "markdown", "meson", "nix", "ruby", "rust", "toml",
       "toml", "zig"
     },
 

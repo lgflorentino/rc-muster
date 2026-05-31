@@ -1,5 +1,5 @@
-#!/bin/zsh 
+#!/usr/bin/env zsh 
 
 set -e 
 
-/usr/bin/code --enable-features=UseOzonePlatform --ozone-platform=wayland
+/usr/bin/env code --enable-features=UseOzonePlatform --ozone-platform=wayland

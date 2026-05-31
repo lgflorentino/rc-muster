@@ -167,6 +167,11 @@ riverctl float-filter-add title "popup title with spaces"
 riverctl csd-filter-add app-id "gedit"
 
 # =========================================================================== #
+#
+# =========================================================================== #
+
+
+# =========================================================================== #
 # eww status bar
 # --------------------------------------------------------------------------- #
 riverctl spawn 'eww --force-wayland daemon; eww open statusbar'
@@ -196,3 +201,4 @@ riverctl map normal $mod M     send-layout-cmd rivercarro "main-location monocle
 riverctl default-layout rivercarro
 exec rivercarro
 
+exec "~/.config/river/xdg-desktop-portal.sh"

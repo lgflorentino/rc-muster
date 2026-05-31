@@ -1,34 +1,49 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
--- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- if not (vim.uv or vim.loop).fs_stat(lazypath) then
---   vim.fn.system({
---     "git",
---     "clone",
---     "--filter=blob:none",
---     "https://github.com/folke/lazy.nvim.git",
---    "--branch=stable", -- latest stable release
---    lazypath,
---  })
---end
---vim.opt.rtp:prepend(lazypath)
-
--- require("lazy").setup("plugins",opts)
 require("config.lazy")
+require("config.language-server-init")
+require("config.nvim-treesitter-init")
+require("config.nvim-telescope-init")
 
-require('language-server-init')
-require('tree-sitter-init')
-require('telescope-init')
 
+vim.lsp.enable({ "luals", "pylsp", "ruby_lsp", "rust_analyzer", "zls" })
+
+
+local commands = vim.api.nvim_create_augroup('vimrc', {})
+
+vim.api.nvim_create_autocmd({ "VimEnter" },  {
+    group = commands,
+    command = "NvimTreeOpen",
+})
+
+vim.opt.background = 'dark'
+vim.opt.mouse = 'a'
+vim.opt.ruler = true
+vim.opt.number = true
+vim.opt.scrolloff = 5 -- minimum nr. of lines above and below cursor
+vim.opt.scrolljump = 50 -- minimum number of lines to scroll
+vim.cmd[[colorscheme tokyonight-moon]]
+
+vim.opt.laststatus = 2  -- dislay the status line
+
+
+vim.opt.showmatch = true -- show matching braces
 
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 
+-- not a friggen clue bro
+vim.opt.guicursor={ 
+    "n-v-c:block", 
+    "i-ci-ve:ver25", 
+    "r-cr:hor20", 
+    "o:hor50",
+    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
+    "sm:block-blinkwait175-blinkoff150-blinkon175"
+}
 
--- enable the lua language server
-vim.lsp.enable('luals')
-vim.lsp.enable('pylsp')
-vim.lsp.enable('ruby_lsp')
-vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('zls')
+
+--[[
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -68,3 +83,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+]]--
