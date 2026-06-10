@@ -3,12 +3,20 @@ vim.g.loaded_netrwPlugin = 1
 
 require("config.lazy")
 require("config.language-server-init")
-require("config.nvim-treesitter-init")
 require("config.nvim-telescope-init")
 
 
 vim.lsp.enable({ "luals", "pylsp", "ruby_lsp", "rust_analyzer", "zls" })
 
+
+vim.opt.background = 'dark'
+vim.opt.mouse = 'a'
+vim.opt.ruler = true
+vim.opt.number = true
+vim.opt.laststatus = 2  -- dislay the status line
+vim.opt.showmatch = true -- show matching braces
+
+vim.cmd[[colorscheme tokyonight-moon]]
 
 local commands = vim.api.nvim_create_augroup('vimrc', {})
 
@@ -17,21 +25,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" },  {
     command = "NvimTreeOpen",
 })
 
-vim.opt.background = 'dark'
-vim.opt.mouse = 'a'
-vim.opt.ruler = true
-vim.opt.number = true
-vim.opt.scrolloff = 5 -- minimum nr. of lines above and below cursor
-vim.opt.scrolljump = 50 -- minimum number of lines to scroll
-vim.cmd[[colorscheme tokyonight-moon]]
+vim.api.nvim_create_autocmd({ 'FileType' },  {
+    pattern = { '*.py' },
+    callback = function()
+	vim.treesitter.start()
+	vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo[0][0].foldmethod = 'expr'
+	vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+})
 
-vim.opt.laststatus = 2  -- dislay the status line
-
-
-vim.opt.showmatch = true -- show matching braces
 
 vim.api.nvim_set_option("clipboard", "unnamedplus")
-
 -- not a friggen clue bro
 vim.opt.guicursor={ 
     "n-v-c:block", 
@@ -42,6 +47,11 @@ vim.opt.guicursor={
     "sm:block-blinkwait175-blinkoff150-blinkon175"
 }
 
+
+vim.lsp.enable('luals')
+vim.lsp.enable('pylsp')
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('rust_analyzer')
 
 --[[
 
